@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+
+{% block title "Toutes les recettes : " ~ ' ' ~ slug %}
+
+{% block body %}
+    {{slug}}
+    {{demo}}  <!-- ici la balise strong s'affiche -->
+    {{demo | raw}} <!-- RAw permet d'afficher le code html -->
+    {{person.Firstname ~ ' ' ~ person.Lastname}}
+    {{person.age}}
+{% endblock %}
