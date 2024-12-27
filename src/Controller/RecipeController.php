@@ -40,7 +40,7 @@ class RecipeController extends AbstractController
         ]);
     } 
 
-    #[Route('/recettes/{id}/edit', name: 'recipe.edit')]
+    #[Route('/recettes/{id}/edit', name: 'recipe.edit', methods: ['GET', 'POST'])]
     public function edit (Recipe $recipe, Request $request,  EntityManagerInterface $em){
         $form = $this ->createForm(RecipeType::class, $recipe);
         $form ->handleRequest($request);
