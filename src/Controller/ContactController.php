@@ -15,6 +15,13 @@ class ContactController extends AbstractController
     public function contact(Request $request): Response
     {
         $data = new ContactDTO();
+
+        // TODO : A SUPPREMER A LA FIN DE LA FASE DE TEST
+        $data->name = 'John Doe';
+        $data->email = 'john';
+        $data->message = 'supersite';
+
+
         $form = $this->createForm(ContactType::class, $data);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
