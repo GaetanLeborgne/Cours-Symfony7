@@ -28,11 +28,11 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav">
                     <li class="nav_item">
-                        <a class="nav-link {{ app.current_route == 'admin.recipe.' ? 'active' : ''}}" href="{{ path('admin.recipe.index') }}">Recettes</a>
+                        <a class="nav-link {{ app.current_route starts with 'admin.recipe.' ? 'active' : ''}}" href="{{ path('admin.recipe.index') }}">Recettes</a>
                     </li>
-                    {# <li class="nav_item">
-                        <a class="nav-link {{ app.current_route starts with 'recipe.' ? 'active' : ''}}" href="{{ path('recipe.index') }}">Recettes</a>
-                    </li> #}
+                    <li class="nav_item">
+                        <a class="nav-link {{ app.current_route starts with 'admin.category.' ? 'active' : ''}}" href="{{ path('admin.category.index') }}">categories</a>
+                    </li>
                 </ul>
             </div>
         </div>

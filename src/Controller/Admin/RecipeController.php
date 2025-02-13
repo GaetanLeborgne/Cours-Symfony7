@@ -44,7 +44,8 @@ class RecipeController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'], requirements: ['id' => Requirement::DIGITS])]
-    public function edit (Recipe $recipe, Request $request,  EntityManagerInterface $em){
+    public function edit (Recipe $recipe, Request $request, EntityManagerInterface $em)
+    {
         $form = $this ->createForm(RecipeType::class, $recipe);
         $form ->handleRequest($request);
         if ($form ->isSubmitted() && $form->isValid()) {
@@ -55,7 +56,6 @@ class RecipeController extends AbstractController
         return $this ->render('admin/recipe/edit.html.twig', [
             'recipe' =>$recipe,
             'form' =>$form,
-         
         ]);
 
     }

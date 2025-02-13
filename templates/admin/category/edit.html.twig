@@ -1,9 +1,9 @@
 {% extends "admin/admin.html.twig" %}
 
-{% block title "Créer une nouvelle recette" %}
+{% block title "Recettes : " ~ category.name %}
 
 {% block body %}
- <h1>Créer une nouvelle recette</h1>
+ <h1>{{ category.name}}</h1>
 
  {{ form(form) }}
 
