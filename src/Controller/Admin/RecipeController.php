@@ -2,8 +2,10 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Category;
 use App\Entity\Recipe;
 use App\Form\RecipeType;
+use App\Repository\CategoryRepository;
 use App\Repository\RecipeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,10 +19,10 @@ class RecipeController extends AbstractController
 {
     #[Route('/', name: 'index')]
     
-    public function index(RecipeRepository $repository, EntityManagerInterface $em): Response
+    public function index(RecipeRepository $repository, CategoryRepository $categoryRepository, EntityManagerInterface $em): Response
     {
-        
         $recipes = $repository->findWithDurationLowerThan(20);
+        $em->flush();
         return $this->render('admin/recipe/index.html.twig', [
             'recipes' =>$recipes,
         ]);
@@ -66,7 +68,7 @@ class RecipeController extends AbstractController
         $em->remove($recipe);
         $em->flush();
         $this->addFlash('success', 'La recette a été supprimée avec succès.');
-        return $this->redirectToRoute('recipe.index');
+        return $this->redirectToRoute('admin.recipe.index');
     }
 
 }
