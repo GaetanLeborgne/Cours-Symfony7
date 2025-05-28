@@ -21,6 +21,7 @@ class RecipeController extends AbstractController
     
     public function index(RecipeRepository $repository, CategoryRepository $categoryRepository, EntityManagerInterface $em): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         $recipes = $repository->findWithDurationLowerThan(20);
         $em->flush();
         return $this->render('admin/recipe/index.html.twig', [
