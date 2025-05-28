@@ -3,7 +3,9 @@
 {% block title "Modifier la recette: " ~ recipe.title %}
 
 {% block body %}
- <h1>Modifier la recette: {{ recipe.title}}</h1>
+    <h1>Modifier la recette: {{ recipe.title}}</h1>
+
+<img src="{{ vich_uploader_asset(recipe, 'thumbnailFile') }}" alt="">
 
  {{ form(form) }}
 
