@@ -5,9 +5,7 @@
 {% block body %}
     <h1>Modifier la recette: {{ recipe.title}}</h1>
 
-    <p>
-        <img src="/recettes/images/{{recipe.thumbnail}}" alt="">
-    </p>
+<img src="{{ vich_uploader_asset(recipe, 'thumbnailFile') }}" alt="">
 
  {{ form(form) }}
 
